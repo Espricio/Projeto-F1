@@ -1,0 +1,111 @@
+/* home.css */
+
+/* Estilo geral para o carrossel */
+.carrousel {
+    /*
+    POSITION
+
+    position: static;
+    Imagine que todos os móveis em uma sala são colocados sem considerar a posição exata. Eles estão lá, mas você não pode controlá-los com precisão.
+
+    position: relative;
+    Imagine que você está em um lugar específico em uma sala e decide mover um pouco para a esquerda ou para a direita, mas ainda se mantém relativamente na mesma posição na sala. Você ajusta a posição de um objeto em relação ao seu local original.
+
+    position: absolute;
+    Imagine que você está em uma sala e decide colocar um novo móvel em um local específico, independentemente dos outros móveis. Esse móvel não influencia a posição dos móveis ao seu redor e é colocado com precisão em relação a um ponto específico.
+
+    position: fixed;
+    Imagine um objeto fixado na parede da sala. Não importa como você se move pela sala, o objeto permanece fixo na mesma posição em relação à parede.
+    O elemento é posicionado em relação à janela de visualização (viewport). Ele permanece na mesma posição mesmo quando a página é rolada.
+
+    */
+    position: relative;
+    width: 100%;
+
+    /* 
+    OVERFLOW
+
+    overflow: visible;
+    Imagine uma caixa de papel com uma tampa solta. Se você coloca algo maior do que a caixa pode comportar, o conteúdo transborda e fica visível ao redor da caixa. A tampa não impede que o conteúdo ultrapasse os limites da caixa.
+    O conteúdo que excede o tamanho do contêiner é exibido fora dos limites do elemento, sem qualquer tipo de ocultação ou rolagem. 
+
+    overflow: hidden;
+    Imagine uma caixa de papel com uma tampa bem ajustada. Se você coloca algo maior do que a caixa pode comportar, o conteúdo que excede a caixa é cortado e não fica visível fora da caixa. Não há maneira de ver o conteúdo cortado sem remover a tampa.
+    O conteúdo que excede o tamanho do contêiner é ocultado, sem permitir a rolagem. O que está fora dos limites do elemento não é mostrado.
+
+    overflow: scroll;
+    Adiciona barras de rolagem (horizontal e/ou vertical) ao contêiner, permitindo que o usuário role para ver o conteúdo que excede os limites do elemento.
+
+    overflow: auto;
+    Adiciona barras de rolagem somente quando o conteúdo excede os limites do elemento. 
+    
+*/
+    overflow: hidden;
+}
+
+.carrousel-images {
+    display: flex;
+    width: 300vw;
+    /* 
+    ANIMATION
+
+    Pense em uma animação de desenho animado. Imagine que você tem uma série de quadros em que um personagem faz uma série de movimentos (como correr, pular, etc.). Cada quadro mostra uma etapa diferente do movimento. Quando você coloca esses quadros em sequência e os exibe rapidamente, o movimento parece suave e contínuo.
+
+    Assim como os quadros de um desenho animado mostram as mudanças ao longo do tempo, a propriedade animation no CSS permite que você defina uma sequência de mudanças de estilo ao longo de um período, criando uma animação suave. 
+    
+*/
+    animation: slide 20s infinite;
+}
+
+.carrousel-images img {
+    width: 100vw;
+    height: 900px;
+}
+
+.item-carrousel {
+    position: relative;
+    margin: 2px;
+    text-align: center;
+}
+
+.item-carrousel h1,
+.item-carrousel p {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+}
+
+.item-carrousel h1 {
+    top: 20px;
+    font-size: 2em;
+}
+
+.item-carrousel p {
+    top: 80px;
+    font-size: 1.5em;
+}
+
+/* 
+    
+@keyframes funcionam como quadros de filmes. Eles definem como um elemento deve mudar em diferentes pontos no tempo, criando uma sequência contínua de movimento ou transformação. 
+    
+*/
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+
+    33.33% {
+        transform: translateX(-100vw);
+    }
+
+    66.66% {
+        transform: translateX(-200vw);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
