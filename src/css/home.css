@@ -54,7 +54,7 @@
     Assim como os quadros de um desenho animado mostram as mudanças ao longo do tempo, a propriedade animation no CSS permite que você defina uma sequência de mudanças de estilo ao longo de um período, criando uma animação suave. 
     
 */
-    animation: slide 20s infinite;
+    animation: slide 30s infinite;
 }
 
 .carrousel-images img {
@@ -65,24 +65,30 @@
 .item-carrousel {
     position: relative;
     margin: 2px;
-    text-align: center;
+    color: white;
+    display: flex;
+    /*A propriedade justify-content no CSS é usada para alinhar e distribuir o espaço entre os itens de um contêiner flexível ao longo do eixo principal. */
+    justify-content: center;
+    height: 100%;
 }
 
 .item-carrousel h1,
 .item-carrousel p {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
+    color: rgb(255, 251, 251);
+    margin: 0;
+    text-align: center;
 }
 
 .item-carrousel h1 {
-    top: 20px;
+    top: 60px;
     font-size: 2em;
+    margin-bottom: 10px;
+    /* Espaçamento entre o título e o parágrafo */
 }
 
 .item-carrousel p {
-    top: 80px;
+    top: 100px;
     font-size: 1.5em;
 }
 
@@ -118,7 +124,22 @@
     width: 90%;
 }
 
-.noticia-container{
+.noticia-container {
+    /* 
+    A propriedade box-shadow no CSS é usada para adicionar sombras a elementos, criando efeitos de profundidade e destaque. Com ela, você pode definir a posição, o desfoque, a propagação e a cor da sombra. 
+
+    box-shadow: [offset-x] [offset-y] [blur-radius] [spread-radius] [color];
+
+    offset-x: Define o deslocamento horizontal da sombra. Um valor positivo empurra a sombra para a direita, enquanto um valor negativo a empurra para a esquerda.
+
+    offset-y: Define o deslocamento vertical da sombra. Um valor positivo empurra a sombra para baixo, enquanto um valor negativo a empurra para cima.
+
+    blur-radius (opcional): Define o raio de desfoque da sombra. Quanto maior o valor, mais suave será o desfoque. Se não for especificado, o valor padrão é 0, o que significa que a sombra será nítida.
+
+    spread-radius (opcional): Define o quanto a sombra se espalha. Um valor positivo aumenta o tamanho da sombra, enquanto um valor negativo a diminui. Se não for especificado, o valor padrão é 0.
+
+    color (opcional): Define a cor da sombra. Pode ser especificada em valores hexadecimais, RGB, RGBA, HSL, etc. Se não for especificada, o navegador usa a cor padrão (normalmente a cor do texto).
+    */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 0 20px;
     padding: 20px;
@@ -140,4 +161,15 @@
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .noticia {
+        /*
+        A propriedade flex-direction no CSS é usada para definir a direção em que
+        os itens de um container flexível são dispostos. Pode ser horizontal (row)
+        ou vertical (column).
+        */
+        flex-direction: column;
+    }
 }
