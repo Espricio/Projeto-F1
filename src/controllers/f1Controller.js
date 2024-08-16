@@ -13,14 +13,46 @@ const userController = {
 
     listarEquipes: async (req, res) => {
         try {
-            const equipe = await f1TeamModel.findAll();
-            return res.render('pages/listar', { Equipes });
+            const equipes = await f1TeamModel.findAll();
+            return res.render('pages/listarEquipes', { equipes });
         } catch (error) {
             console.log(error);
             let error_message = verificaErro(error);
             res.render('pages/pag_erro', { message: error_message });
         }
-    }
+    },
+
+    editarEquipe: async (req, res) => {
+        try {
+            const { id_equipe } = req.params;
+            const equipe = await f1TeamModel.findByPk(id_equipe);
+            if (!equipe) {
+                return res.status(404).render('pages/pag_erro', { message: 'Equipe não encontrada!' });
+            }
+            return res.render('pages/editarEquipe', { data: equipe });
+        } catch (error) {
+            console.log(error);
+            let error_message = verificaErro(error);
+            res.render('pages/pag_erro', { message: error_message });
+        }
+    },
+
+    salvarEdicaoEquipe: async (req, res) =>{
+        try {
+            const { id_equipe, nome, pais, chefe_equipe } = req.body;
+            const equipe = await f1TeamModel.findByPk(id_equipe);
+            if (!equipe) {
+                return res.status(404).render('pages/pag_erro', { message: 'Equipe não encontrada!' });
+            }
+            await f1TeamModel.update({ nome, pais, chefe_equipe }, { where: { id_equipe } });
+            const equipes = await f1TeamModel.findAll();
+            return res.render('pages/listarEquipes', { equipes });
+        } catch (error) {
+            console.log(error);
+            let error_message = verificaErro(error);
+            res.render('pages/pag_erro', { message: error_message });
+        }
+    },
 };
 
 const verificaErro = (err) => {

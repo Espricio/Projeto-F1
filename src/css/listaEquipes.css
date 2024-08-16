@@ -1,0 +1,45 @@
+.listaEquipes{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    min-height: 400px;
+}
+
+.tabela-equipes {
+    width: 80%;
+    margin: 0 auto 20px;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tabela-equipes th,
+.tabela-equipes td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.tabela-equipes th {
+    background-color: #333;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.tabela-equipes img{
+    width: 30px;
+    height: 30px;
+}
+
+@media (max-width: 768px) {
+    .tabela-equipes {
+        width: 100%;
+    }
+
+    .tabela-equipes th,
+    .tabela-equipes td {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
