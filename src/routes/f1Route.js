@@ -9,5 +9,6 @@ router.get("/criarEquipe", f1Controller.criarEquipe);
 router.post("/adicionarEquipe", f1Controller.adicionarEquipe);
 router.get("/editarEquipe/:id_equipe", f1Controller.editarEquipe);
 router.post("/salvarEdicaoEquipe", f1Controller.salvarEdicaoEquipe);
+router.get("/deletarEquipe/:id_equipe", f1Controller.deletarEquipe);
 
 module.exports = router;

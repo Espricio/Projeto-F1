@@ -30,12 +30,12 @@
                         <%= item.chefe_equipe %>
                     </td>
                     <td>
-                        <a method="put" href="/editarEquipe/<%= item.id_equipe %>">
+                        <a href="/editarEquipe/<%= item.id_equipe %>">
                             <img src="../../images/editarEquipe.png" alt="Editar Equipe">
                         </a>
                     </td>
                     <td>
-                        <a method="post" href="#" onclick="exibirModalConfirmacao('<%= item.id_equipe %>')">
+                        <a href="/deletarEquipe/<%= item.id_equipe %>">
                             <img src="../../images/deletarEquipe.png" alt="Deletar Equipe">
                         </a>
                     </td>

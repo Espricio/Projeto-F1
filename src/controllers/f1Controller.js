@@ -36,10 +36,9 @@ const userController = {
         try {
             const { nome, pais, chefe_equipe } = req.body;
 
-            await f1TeamModel.create({nome, pais, chefe_equipe});
+            await f1TeamModel.create({ nome, pais, chefe_equipe });
 
-            const equipes = await f1TeamModel.findAll();
-            return res.render('pages/listarEquipes', { equipes });
+            return res.redirect('/listarEquipes');
         } catch (error) {
             console.log(error);
             let error_message = verificaErro(error);
@@ -62,7 +61,7 @@ const userController = {
         }
     },
 
-    salvarEdicaoEquipe: async (req, res) =>{
+    salvarEdicaoEquipe: async (req, res) => {
         try {
             const { id_equipe, nome, pais, chefe_equipe } = req.body;
             const equipe = await f1TeamModel.findByPk(id_equipe);
@@ -70,14 +69,38 @@ const userController = {
                 return res.status(404).render('pages/pag_erro', { message: 'Equipe não encontrada!' });
             }
             await f1TeamModel.update({ nome, pais, chefe_equipe }, { where: { id_equipe } });
-            const equipes = await f1TeamModel.findAll();
-            return res.render('pages/listarEquipes', { equipes });
+
+            return res.redirect('/listarEquipes');
         } catch (error) {
             console.log(error);
             let error_message = verificaErro(error);
             res.render('pages/pag_erro', { message: error_message });
         }
     },
+
+    deletarEquipe: async (req, res) => {
+        try {
+            const { id_equipe } = req.params;
+            const equipe = await f1TeamModel.findByPk(id_equipe);
+
+            if (!equipe) {
+                return res.status(404).render('pages/pag_erro', { message: 'Equipe não encontrada!' });
+            }
+
+            const result = await f1TeamModel.destroy({ where: { id_equipe } });
+
+            if (result > 0) {
+                return res.redirect('/listarEquipes');
+            } else {
+                return res.status(404).render('pages/pag_erro', { message: 'Erro ao excluir Equipe!' });
+            }
+
+        } catch (error) {
+            console.log(error);
+            let error_message = verificaErro(error);
+            res.render('pages/pag_erro', { message: error_message });
+        }
+    }
 };
 
 const verificaErro = (err) => {
