@@ -5,6 +5,23 @@
     min-height: 400px;
 }
 
+.cabecalhoListaEquipes{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cabecalhoListaEquipes a{
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-color: #333;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+}
+
 .tabela-equipes {
     width: 80%;
     margin: 0 auto 20px;

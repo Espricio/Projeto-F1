@@ -22,6 +22,31 @@ const userController = {
         }
     },
 
+    criarEquipe: (req, res) => {
+        try {
+            res.render('pages/criarEquipe');
+        } catch (error) {
+            console.log(error);
+            let error_message = verificaErro(error);
+            res.render('pages/pag_erro', { message: error_message });
+        }
+    },
+
+    adicionarEquipe: async (req, res) => {
+        try {
+            const { nome, pais, chefe_equipe } = req.body;
+
+            await f1TeamModel.create({nome, pais, chefe_equipe});
+
+            const equipes = await f1TeamModel.findAll();
+            return res.render('pages/listarEquipes', { equipes });
+        } catch (error) {
+            console.log(error);
+            let error_message = verificaErro(error);
+            res.render('pages/pag_erro', { message: error_message });
+        }
+    },
+
     editarEquipe: async (req, res) => {
         try {
             const { id_equipe } = req.params;
