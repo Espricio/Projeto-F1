@@ -5,7 +5,7 @@ const sequelize = new Sequelize('gerenciamento_f1', 'sa', '1234567890', {
     dialect: 'mssql',
     dialectModule: require('tedious'),
     host: 'localhost',
-    port: 1434, // Porta correta
+    port: 1433, // Porta correta
     dialectOptions: {
         encrypt: true, // Se o SQL Server estiver configurado para usar SSL
         trustServerCertificate: true // Se o certificado não for confiável
