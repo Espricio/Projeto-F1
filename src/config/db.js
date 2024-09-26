@@ -1,10 +1,10 @@
 const Sequelize = require("sequelize");
 
 // BANCO DE DADOS
-const sequelize = new Sequelize('gerenciamento_f1', 'sa', '1234567890', {
+const sequelize = new Sequelize('gerenciamento_f1', 'maycEspricio_SQLLogin_1', 'UserAdm123', {
     dialect: 'mssql',
     dialectModule: require('tedious'),
-    host: 'localhost',
+    host: 'gerenciamento_f1.mssql.somee.com',
     port: 1433, // Porta correta
     dialectOptions: {
         encrypt: true, // Se o SQL Server estiver configurado para usar SSL
