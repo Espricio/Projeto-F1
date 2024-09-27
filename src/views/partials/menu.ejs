@@ -1,10 +1,35 @@
-<!-- Menu de navegação -->
-<nav class="menu">
-    <ul>
-        <li><a href="/"><img src="../../images/logoF1Branco.png" alt="Home"></a></li>
-        <li><a href="/listarEquipes">Equipes</a></li>
-        <li><a href="#pilotos">Pilotos</a></li>
-        <li><a href="#circuitos">Circuitos</a></li>
-        <li><a href="#resultados">Resultados</a></li>
+<header>
+  <!-- Menu de navegação -->
+  <nav class="menu">
+    <!-- Menu de hamburguer -->
+    <div class="menu-toggle" id="menu-toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <ul id="menu-list">
+      <!-- Adicionada o id menu-list na ul -->
+
+      <li>
+        <a href="/"><img src="../../images/logoF1Branco.png" alt="Home" /></a>
+      </li>
+      <li><a href="/listarEquipes">Equipes</a></li>
+      <li><a href="#pilotos">Pilotos</a></li>
+      <li><a href="#circuitos">Circuitos</a></li>
+      <li><a href="#resultados">Resultados</a></li>
     </ul>
-</nav>
+  </nav>
+</header>
+
+<script>
+  // Seleciona o ícone do hambúrguer e a lista de menu
+  const menuToggle = document.getElementById("menu-toggle");
+  const menuList = document.getElementById("menu-list");
+
+  // Adiciona um evento de clique ao ícone do hambúrguer
+  menuToggle.addEventListener("click", () => {
+    // Alterna a classe 'show' na lista de menu para exibir/ocultar o menu
+    menuList.classList.toggle("show");
+  });
+</script>

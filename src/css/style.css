@@ -1,133 +1,220 @@
 /* Configurando as fontes do webSite */
 @font-face {
-    font-family: 'FonteF1';
-    src: url('../fonts/Formula1-Bold.otf') format('opentype'),
-         url('../fonts/Formula1-Regular.otf') format('opentype'),
-         url('../fonts/Formula1-Wide.otf') format('opentype'); 
-    font-weight: normal;
-    font-style: normal;
-    /* font-weight e font-style: Definem o peso e estilo da fonte.*/
+  font-family: "FonteF1";
+  src: url("../fonts/Formula1-Bold.otf") format("opentype"),
+    url("../fonts/Formula1-Regular.otf") format("opentype"),
+    url("../fonts/Formula1-Wide.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  /* font-weight e font-style: Definem o peso e estilo da fonte.*/
 }
 
 /* Estilo geral para o corpo da página */
 body {
-    font-family: FonteF1, sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: FonteF1, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 3rem;
 }
-
 /* Estilo para o menu de navegação */
 .menu {
-    background-color: #E10600; /* Cor de fundo do menu */
-    padding: 10px; /* Espaçamento interno do menu */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: flex-start;
+  background-color: #e10600;
+  /* Cor de fundo do menu */
+  padding: 0.6rem 0;
+  /* Espaçamento interno do menu */
+  width: 100%;
+  /* Largura total da tela */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Estilo para o ícone do hambúrguer */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  /* Muda o cursor para indicar que é clicável */
+}
+
+.menu-toggle .bar {
+  background-color: #fff;
+  height: 0.3rem;
+  width: 1.5rem;
+  margin: 0.15rem 0;
 }
 
 /* Estilo para a lista de itens do menu */
 .menu ul {
-    list-style-type: none; /* Remove marcadores da lista */
-    margin: 0;
-    padding: 0;
-    display: flex; 
-    flex-wrap: wrap; /* Permite que os itens da lista quebrem para a linha seguinte se não houver espaço suficiente */
-    justify-content: center; /* Centraliza os itens horizontalmente */
+  list-style-type: none;
+  /* Remove marcadores da lista */
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 /* Estilo para cada item do menu */
 .menu li {
-    margin: 5px; /* Espaçamento entre os itens do menu */
+  margin: 0.3rem;
+  /* Espaçamento entre os itens do menu */
 }
 
 /* Estilo para os links do menu */
 .menu a {
-    color: #fff; /* Cor do texto dos links */
-    text-decoration: none; /* Remove sublinhado dos links */
-    font-size: 16px; /* Tamanho da fonte dos links */
+  color: #fff;
+  /* Cor do texto dos links */
+  text-decoration: none;
+  /* Remove sublinhado dos links */
+  font-size: 1rem;
+  /* Tamanho da fonte dos links */
+  /* Este espaçamento é importante para dispositivos mobile, em que o toque do dedo não é tão preciso como o mouse do computador. */
 }
 
 /* Estilo para as imagens do menu */
 .menu img {
-    width: 80px; /* Ajusta a largura da imagem  */
-    height: auto; /* Ajusta a altura da imagem proporcionalmente */
+  width: 5vw;
+  /* Ajusta a largura da imagem  */
+  height: auto;
+  /* Ajusta a altura da imagem proporcionalmente */
 }
 
+/* 
+    Media Queries para responsividade 
+    Media queries são uma técnica no CSS usada para aplicar estilos diferentes a um documento HTML com base em características do dispositivo que está exibindo o conteúdo. Essas características podem incluir a largura da tela, a altura, a orientação (paisagem ou retrato), e outros aspectos relacionados ao dispositivo.
+*/
+
 /* Ajusta o menu em telas menores */
-@media (max-width: 768px) {
-    .menu ul {
-        flex-direction: column; /* Empilha os itens verticalmente */
-        align-items: center; /* Centraliza os itens verticalmente */
-    }
+@media (width <= 768px) {
+    
+  .menu {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .menu ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    max-height: 0;
+    overflow: hidden;
+    /* Inicialmente oculta o menu */
+    transition: max-height 0.5s ease;
+    /* Transição suave para a altura */
+  }
 
-    .menu li {
-        margin: 10px 0; /* Espaçamento vertical entre os itens do menu */
-    }
+  .menu-toggle {
+    display: flex;
+    /* Exibe o ícone do hambúrguer */
+    flex-direction: column;
+    align-self: flex-start;
+    margin-left: 1rem;
+  }
 
-    .menu img {
-        width: 64px; /* Reduz a largura da imagem */
-    }
+  .menu ul.show {
+    max-height: 12rem;
+    /* Exibe o menu quando a classe 'show' é adicionada */
+  }
+
+  .menu li {
+    margin: 0.5rem 0;
+    /* Espaçamento vertical entre os itens do menu */
+  }
+
+  .menu img {
+    width: 15vw;
+    /* Reduz a largura da imagem */
+  }
 }
 
 /* STYLE DO FOOTER DO SITE */
 
-.footer {
-    background-color: #E10600; /* Cor de fundo do footer */
-    color: #fff; /* Cor do texto no footer */
-    padding: 20px; /* Espaçamento interno do footer */
-    text-align: center; /* Centraliza o texto */
+footer {
+  background-color: #e10600; /* Cor de fundo do footer */
+  color: #fff; /* Cor do texto no footer */
+  margin-top: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 100%;
+  align-self: end;
 }
 
 .footer-container {
-    max-width: 100vw; /* Largura máxima do container */
-    margin: 0 auto; /* Centraliza o container horizontalmente */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .footer-logo img {
-    width: 100px; /* Largura do logo */
-    margin-bottom: 5px; /* Margem inferior do logo */
+  width: 5rem; /* Largura do logo */
 }
 
 .footer-links ul {
-    list-style-type: none; /* Remove marcadores da lista */
-    margin: 0;
-    padding: 0;
+  list-style-type: none; /* Remove marcadores da lista */
+  margin-top: 1rem;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
 }
 
 .footer-links ul li {
-    display: inline; /* Exibe itens da lista em linha */
-    margin: 0 10px; /* Espaçamento entre itens */
+  margin-right: 0.5rem; /* Espaçamento entre itens */
 }
 
 .footer-links ul li a {
-    color: #fff; /* Cor dos links */
-    text-decoration: none; /* Remove sublinhado dos links */
-}
-
-.footer-social {
-    margin: 10px 0; /* Espaçamento acima e abaixo dos ícones sociais */
+  color: #fff; /* Cor dos links */
+  text-decoration: none; /* Remove sublinhado dos links */
 }
 
 .footer-social a {
-    color: #fff; /* Cor dos links sociais */
-    margin: 0 10px; /* Espaçamento entre links sociais */
-    text-decoration: none; /* Remove sublinhado dos links sociais */
+  color: #fff; /* Cor dos links sociais */
+  margin-right: 0.5rem; /* Espaçamento entre links sociais */
+  text-decoration: none; /* Remove sublinhado dos links sociais */
 }
 
 .footer-info {
-    margin-top: 20px; /* Espaçamento acima da informação de direitos autorais */
+  margin-top: 1rem; /* Espaçamento acima da informação de direitos autorais */
+}
+
+footer p {
+  margin: 0;
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column; /* Coloca os itens em coluna em telas pequenas */
-        text-align: center; /* Centraliza o conteúdo */
-    }
+@media (width <= 768px) {
+  .footer-links {
+    margin-top: 0.5rem;
+  }
 
-    .footer-links ul {
-        flex-direction: column; /* Coloca os links em coluna */
-        margin-bottom: 20px; /* Espaçamento abaixo dos links */
-    }
+  .footer-links ul {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+  }
 
-    .footer-links ul li {
-        margin: 5px 2px; /* Espaçamento entre os itens em coluna */
-    }
+  .footer-social {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-social a {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-links ul li {
+    margin-bottom: 1rem;
+  }
 }

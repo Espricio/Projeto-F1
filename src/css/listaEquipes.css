@@ -2,7 +2,7 @@
     display: flex; 
     flex-direction: column;
     align-items: center;
-    min-height: 400px;
+    min-height: 25rem;
 }
 
 .cabecalhoListaEquipes{
@@ -13,8 +13,8 @@
 }
 
 .cabecalhoListaEquipes a{
-    padding: 8px 12px;
-    border-radius: 8px;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.5rem;
     background-color: #333;
     color: #fff;
     text-transform: uppercase;
@@ -24,15 +24,15 @@
 
 .tabela-equipes {
     width: 80%;
-    margin: 0 auto 20px;
+    margin-top: 1rem;
     border-collapse: collapse;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.1);
 }
 
 .tabela-equipes th,
 .tabela-equipes td {
-    padding: 12px 15px;
+    padding: 0.7rem 1rem;
     text-align: center;
     border: 1px solid #ddd;
 }
@@ -45,18 +45,18 @@
 }
 
 .tabela-equipes img{
-    width: 30px;
-    height: 30px;
+    width: 2rem;
+    height: 2rem;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
     .tabela-equipes {
-        width: 100%;
+        width: 90%;
     }
 
     .tabela-equipes th,
     .tabela-equipes td {
-        font-size: 14px;
-        padding: 10px;
+        font-size: 0.9rem;
+        padding: 0.6rem;
     }
 }
