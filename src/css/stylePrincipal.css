@@ -105,7 +105,7 @@ footer {
 }
 
 .footer-logo img {
-  width: 5rem;
+  width: 5vw;
 }
 
 /* Estilo dos links no rodapé */
@@ -127,10 +127,23 @@ footer {
 }
 
 /* Estilo dos links sociais no rodapé */
+
+.footer-social{
+  display: flex;
+}
+
 .footer-social a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   color: #fff;
   margin-right: 0.5rem;
   text-decoration: none;
+}
+
+.footer-social img{
+  width: 1.5vw;
+  margin-right: 0.3rem;
 }
 
 /* Espaçamento para a seção de direitos autorais */
@@ -170,6 +183,12 @@ footer p {
   /* Ícone de hambúrguer visível em telas menores */
   .menu .menu-toggle {
     display: flex;
+    justify-content: center;
+    width: 90%;
+  }
+
+  .menu .menu-toggle img{
+    width: 8vw;
   }
 
   /* Menu exibido quando a classe 'show' é aplicada */
@@ -177,35 +196,31 @@ footer p {
     max-height: 18rem;
   }
 
-  .menu .menu-toggle img{
-    width: 8vw;
-  }
-
   /* Ajusta o tamanho das imagens do menu em dispositivos móveis */
   .menu #menu-list img {
     width: 15vw;
   }
 
-  .footer-links {
-    margin-top: 0.5rem;
+  .footer-logo img {
+    width: 15vw;
+    margin-bottom: 1rem;
   }
 
   .footer-links ul {
+    margin: 0;
     display: flex;
     flex-direction: column;
-    margin-top: 0.5rem;
   }
 
-  .footer-social {
-    display: flex;
-    flex-direction: column;
+  .footer-links ul li {
+    margin-bottom: 1rem;
   }
 
   .footer-social a {
     margin-bottom: 0.5rem;
   }
 
-  .footer-links ul li {
-    margin-bottom: 1rem;
+  .footer-social img{
+    width: 3vw;
   }
 }
