@@ -1,56 +1,61 @@
 /* Estilo para a seção de edição de equipe */
 .editarEquipe {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
+    max-width: 60%;
+    margin: 3rem auto;
+    padding: 1.4rem;
+    background-color: var(--cor-primaria);
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .editarEquipe h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 1.4rem;
     font-size: 1.5rem;
-    color: #333;
+    color: var(--cor-secundaria);
 }
 
 .form-equipe {
-    display: flex;
-    flex-direction: column;
+    width: 90%;
 }
 
 .form-group {
+    width: 100%;
     margin-bottom: 15px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 0.4rem;
     font-weight: bold;
-    color: #333;
+    color: var(--cor-secundaria);
 }
 
-.form-group input[type="text"] {
+.form-group input[type='text']{
     width: 100%;
-    padding: 10px;
+    padding: 0.6rem;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 0.4rem;
     font-size: 1.4rem;
+    font-family: FonteF1, sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
 }
 
 .form-group button {
     width: 100%;
-    padding: 10px;
-    background-color: #333;
-    color: white;
+    padding: 0.7rem;
+    font-family: FonteF1, sans-serif;
+    font-weight: bold;
+    background-color: #000;
+    color: var(--cor-secundaria);
     border: none;
-    border-radius: 4px;
+    border-radius: 0.4rem;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-.form-group button:hover {
-    background-color: #555;
 }
