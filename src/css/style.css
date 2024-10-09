@@ -1,4 +1,4 @@
-/* Configurando as fontes do webSite */
+/* Definindo as fontes personalizadas para o site */
 @font-face {
   font-family: "FonteF1";
   src: url("../fonts/Formula1-Bold.otf") format("opentype"),
@@ -6,10 +6,15 @@
     url("../fonts/Formula1-Wide.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
-  /* font-weight e font-style: Definem o peso e estilo da fonte.*/
 }
 
-/* Estilo geral para o corpo da página */
+/* Definindo as cores principais do site */
+:root {
+  --cor-primaria: #E10600; /* Vermelho */
+  --cor-secundaria: #FFF; /* Branco */
+}
+
+/* Estilo geral do corpo da página */
 body {
   font-family: FonteF1, sans-serif;
   margin: 0;
@@ -19,32 +24,28 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 3rem;
 }
 
-/* Estilo para o menu de navegação */
-.menu {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-self: flex-start;
-  background-color: #e10600;
-  /* Cor de fundo do menu */
-  padding: 0.6rem 0;
-  /* Espaçamento interno do menu */
+header{
   width: 100%;
-  /* Largura total da tela */
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
+  display: flex;
+  justify-content: center;
 }
 
-/* Estilo para o ícone do hambúrguer */
+/* Estilo do menu de navegação fixo no topo */
+.menu {
+  width: 100%;
+  background-color: var(--cor-primaria);
+  display: flex;
+  justify-content: center;
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(225, 6, 0, 0.4);
+}
+
+/* Estilo do botão de menu tipo "hambúrguer" (para dispositivos móveis) */
 .menu-toggle {
   display: none;
   cursor: pointer;
-  /* Muda o cursor para indicar que é clicável */
 }
 
 .menu-toggle .bar {
@@ -54,71 +55,62 @@ body {
   margin: 0.15rem 0;
 }
 
-/* Estilo para a lista de itens do menu */
+/* Estilo da lista de navegação */
 .menu ul {
   list-style-type: none;
-  /* Remove marcadores da lista */
   margin: 0;
+  padding: 0;
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-/* Estilo para cada item do menu */
+/* Estilo dos itens do menu */
 .menu li {
-  margin: 0.3rem;
-  /* Espaçamento entre os itens do menu */
+  margin: 0.25rem;
+  padding: 0.7rem;
 }
 
-/* Estilo para os links do menu */
+/* Estilo dos links do menu */
 .menu a {
-  color: #fff;
-  /* Cor do texto dos links */
+  color: var(--cor-secundaria);
   text-decoration: none;
-  /* Remove sublinhado dos links */
   font-size: 1rem;
-  /* Tamanho da fonte dos links */
-  /* Este espaçamento é importante para dispositivos mobile, em que o toque do dedo não é tão preciso como o mouse do computador. */
+  padding: 0.7rem;
+  cursor: pointer;
 }
 
-/* Estilo para as imagens do menu */
-.menu img {
+/* Estilo das imagens no menu */
+.menu ul img {
   width: 5vw;
-  /* Ajusta a largura da imagem  */
   height: auto;
-  /* Ajusta a altura da imagem proporcionalmente */
 }
 
-/* 
-    Media Queries para responsividade 
-    Media queries são uma técnica no CSS usada para aplicar estilos diferentes a um documento HTML com base em características do dispositivo que está exibindo o conteúdo. Essas características podem incluir a largura da tela, a altura, a orientação (paisagem ou retrato), e outros aspectos relacionados ao dispositivo.
-*/
-
-/* STYLE DO FOOTER DO SITE */
-
+/* Estilo do rodapé */
 footer {
-  background-color: #e10600; /* Cor de fundo do footer */
-  color: #fff; /* Cor do texto no footer */
+  background-color: var(--cor-primaria);
+  color: var(--cor-secundaria);
   margin-top: 1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: 1rem 0;
   width: 100%;
+  border-radius: 1rem 1rem 0 0;
 }
 
 .footer-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
   width: 100%;
 }
 
 .footer-logo img {
-  width: 5rem; /* Largura do logo */
+  width: 5rem;
 }
 
+/* Estilo dos links no rodapé */
 .footer-links ul {
-  list-style-type: none; /* Remove marcadores da lista */
+  list-style-type: none;
   margin-top: 1rem;
   padding: 0;
   display: flex;
@@ -126,69 +118,72 @@ footer {
 }
 
 .footer-links ul li {
-  margin-right: 0.5rem; /* Espaçamento entre itens */
+  margin-right: 0.5rem;
 }
 
 .footer-links ul li a {
-  color: #fff; /* Cor dos links */
-  text-decoration: none; /* Remove sublinhado dos links */
+  color: #fff;
+  text-decoration: none;
 }
 
+/* Estilo dos links sociais no rodapé */
 .footer-social a {
-  color: #fff; /* Cor dos links sociais */
-  margin-right: 0.5rem; /* Espaçamento entre links sociais */
-  text-decoration: none; /* Remove sublinhado dos links sociais */
+  color: #fff;
+  margin-right: 0.5rem;
+  text-decoration: none;
 }
 
+/* Espaçamento para a seção de direitos autorais */
 .footer-info {
-  margin-top: 1rem; /* Espaçamento acima da informação de direitos autorais */
+  margin-top: 1rem;
 }
 
+/* Estilo dos parágrafos no rodapé */
 footer p {
   margin: 0;
 }
 
-/* Responsividade */
+/* Responsividade para telas menores (como dispositivos móveis) */
 @media (width <= 768px) {
+
+  /* Menu em coluna para dispositivos móveis */
   .menu {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
   }
 
   .menu ul {
-    padding: 0;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: nowrap;
-    max-height: 0;
+    max-height: 0; /* Menu oculto por padrão */
     overflow: hidden;
-    /* Inicialmente oculta o menu */
-    transition: max-height 0.5s ease;
-    /* Transição suave para a altura */
+    transition: max-height 0.5s ease; /* Animação suave ao abrir o menu */
   }
 
-  .menu-toggle {
+  /* Ícone de hambúrguer visível em telas menores */
+  .menu .menu-toggle {
     display: flex;
-    /* Exibe o ícone do hambúrguer */
-    flex-direction: column;
-    align-self: flex-start;
-    margin-left: 1rem;
   }
 
+  /* Menu exibido quando a classe 'show' é aplicada */
   .menu ul.show {
-    max-height: 12rem;
-    /* Exibe o menu quando a classe 'show' é adicionada */
+    max-height: 18rem;
   }
 
-  .menu li {
-    margin: 0.5rem 0;
-    /* Espaçamento vertical entre os itens do menu */
+  .menu .menu-toggle img{
+    width: 8vw;
   }
 
-  .menu img {
+  /* Ajusta o tamanho das imagens do menu em dispositivos móveis */
+  .menu #menu-list img {
     width: 15vw;
-    /* Reduz a largura da imagem */
   }
 
   .footer-links {
@@ -199,7 +194,6 @@ footer p {
     display: flex;
     flex-direction: column;
     margin-top: 0.5rem;
-    margin-bottom: 0;
   }
 
   .footer-social {
