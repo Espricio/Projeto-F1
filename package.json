@@ -12,7 +12,7 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "ejs": "^3.1.10",
-    "express": "^4.19.2",
+    "express": "^4.21.1",
     "express-ejs-layouts": "^2.5.1",
     "sequelize": "^6.37.3",
     "tedious": "^18.3.0"
