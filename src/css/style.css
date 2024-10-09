@@ -14,12 +14,14 @@ body {
   font-family: FonteF1, sans-serif;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   padding-top: 3rem;
 }
+
 /* Estilo para o menu de navegação */
 .menu {
   display: flex;
@@ -101,7 +103,6 @@ footer {
   padding-top: 1rem;
   padding-bottom: 1rem;
   width: 100%;
-  align-self: end;
 }
 
 .footer-container {
